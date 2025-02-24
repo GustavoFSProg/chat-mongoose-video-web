@@ -1,14 +1,53 @@
 
+import {create} from 'zustand'
+import api from './api'
 
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './index.css'
 import NavBar from './components/Navbar/Navbar'
+import { useAuthStore } from './store/useAuthStore'
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  // const {authUser, ckeckAuth} = useAuthStore()
+  const [dados, setDados] = useState([])
+
+
+
+
+    async function ChekAuth(req, res){
+        // const token = localStorage.getItem('token')
+        try {
+            const {data} = await api.get('/get-users')
+
+            console.log(`data: ${data}`)
+
+            setDados(data)
+
+            console.log(`dados: ${dados}`)
+
+
+            
+        } catch (error) {
+
+            // set({authUser: null})
+            return console.log(`error: ${error}`)
+            
+            
+        }
+        // finally {
+        //     set({isCheckingAuth: false})
+        // }
+    }
+
+
+
+useEffect(() => {
+  ChekAuth()
+},[])
 
   return (
     <>
@@ -17,11 +56,19 @@ function App() {
        bg-amber-200 flex-col items-center justify-center">
         OLÁ
         <br />
-        <br />
-        <br />
-        <br />
+       
         {/* <div> */}
+        {dados.map((items) => {
+          return (
+            <div key={items._id}>
 
+            <p>{items._id}</p>
+            <p>{items.email}</p>
+            
+            <br />
+                        </div>
+          )
+        })}
 
         {/* <button className="btn"> */}
         <button className="btn">Button</button>
