@@ -5,12 +5,14 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './index.css'
+import NavBar from './components/Navbar/Navbar'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
+    <NavBar />
       <div className="flex w-full text-1xl
        bg-amber-200 flex-col items-center justify-center">
         OLÁ
