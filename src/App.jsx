@@ -1,20 +1,36 @@
 
+
+
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
+import './index.css'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <div className="bg-amber-400 text-5xl">
+      <div className="flex w-full text-1xl
+       bg-amber-200 flex-col items-center justify-center">
         OLÁ
         <br />
         <br />
         <br />
         <br />
+        {/* <div> */}
+
+
+        {/* <button className="btn"> */}
+        <button className="btn">Button</button>
+<button className="btn btn-neutral">Neutral</button>
+<button className="btn btn-primary">Primary</button>
+<button className="btn btn-secondary">Secondary</button>
+<button className="btn btn-accent">Accent</button>
+<button className="btn btn-ghost">Ghost</button> 
+{/* <button className="btn btn-link">Link</button> */}
+        {/* </div> */}
+          {/* </button>
 
         {/* Open the modal using document.getElementById('ID').showModal() method */}
 <button className="btn" onClick={()=>document.getElementById('my_modal_1').showModal()}>open modal</button>
@@ -30,6 +46,17 @@ function App() {
     </div>
   </div>
 </dialog>
+
+<br />
+<br />
+<br />
+<details className="dropdown">
+  <summary className="btn m-1">open or close</summary>
+  <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+    <li><a>Item 1</a></li>
+    <li><a>Item 2</a></li>
+  </ul>
+</details>
       </div>
    
     </>
