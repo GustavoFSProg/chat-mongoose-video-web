@@ -3,20 +3,33 @@ import NavBar from "../../components/Navbar/Navbar";
 
 import userContext from '../../Contexts/userContext'
 import {useContext } from "react"
+import api from "../../api";
 
 
 function SignUp(req, res) {
-  event.preventDefault()
-
+  
   const [fullname, setFullname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   
-  // const {user, setUser, isSignup} = useContext(userContext)
+  async function handleSignup(event){
+      event.preventDefault()
 
-  // setUser({name: "Patiuca"})
+      try {
+        const data = {fullname: fullname, email: email, password: password}
 
-  // console.log(user.name,  isSignup)
+
+        const users = await api.post('/signup', data)
+
+        return alert("Usuário cadastrado com sucesso!")
+        
+      } catch (error) {
+        return alert(error)
+
+        
+      }
+    
+    }
 
   return (
     <>
@@ -29,7 +42,7 @@ function SignUp(req, res) {
           CADASTRO DE USUÁRIOS
       </h1>
 
-         <form className="flex w-[47%] flex-col h-auto text-[19px]">
+         <form onSubmit={handleSignup} className="flex w-[47%] flex-col h-auto text-[19px]">
           <input placeholder="Full Name"
           className=" p-3"
           value={fullname}
@@ -50,7 +63,7 @@ function SignUp(req, res) {
 
 <br />
 
-<button className="btn btn-secondary h-12 text-[16px]">CADASTRAR</button>
+<button type="submit" className="btn btn-secondary h-12 text-[16px]">CADASTRAR</button>
 
          </form>
         </div>
