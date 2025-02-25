@@ -9,6 +9,7 @@ function SignUp(req, res) {
   const [fullname, setFullname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const {user, setIsSignup, isSignup} = useContext(userContext)
 
   async function handleSignup(event) {
     event.preventDefault();
@@ -16,7 +17,14 @@ function SignUp(req, res) {
     try {
       const data = { fullname: fullname, email: email, password: password };
 
-      const users = await api.post("/signup", data);
+      setIsSignup(true)
+
+
+      // const users = await api.post("/signup", data);
+
+      
+
+      console.log(isSignup)
 
       return alert("Usuário cadastrado com sucesso!");
     } catch (error) {

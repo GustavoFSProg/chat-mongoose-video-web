@@ -4,7 +4,7 @@ import {createContext, useState} from 'react'
 
 export  function  UserContextProvider({children}){
     const [user, setUser] = useState({name: "Anderson", email: "andre@.com"})
-    const [isSignup, setIsSignup] = useState(true);
+    const [isSignup, setIsSignup] = useState(false);
   
     return (
       <userContext.Provider value={{ user , setUser, isSignup, setIsSignup }}>

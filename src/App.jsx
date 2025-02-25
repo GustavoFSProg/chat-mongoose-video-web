@@ -13,6 +13,7 @@ import useAuthStore from './store/useAuthStore'
 import userContext from './Contexts/userContext'
 import {useContext } from "react"
 
+
 function App() {
   // const {authUser, ckeckAuth} = useAuthStore()
   const [dados, setDados] = useState([])
@@ -82,6 +83,7 @@ useEffect(() => {
        bg-amber-200 flex-col items-center justify-center">
         OLÁ
         <br />
+        
        
         {/* <div> */}
         {/* {dados.map((items) => {
