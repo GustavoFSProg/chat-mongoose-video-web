@@ -8,17 +8,49 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './index.css'
 import NavBar from './components/Navbar/Navbar'
-import { useAuthStore } from './store/useAuthStore'
-
+// import { useAuthStore } from './store/useAuthStore'
+import useAuthStore from './store/useAuthStore'
+import userContext from './Contexts/userContext'
+import {useContext } from "react"
 
 function App() {
   // const {authUser, ckeckAuth} = useAuthStore()
   const [dados, setDados] = useState([])
+  const [isCheckingAuth, setIsCheckingAuth] = useState(true)
+
+  const {user, isSignup} = useContext(userContext)
+
+     console.log(user.name, user.email, isSignup)
 
 
+    // async function ChekAuth(req, res){
+    //     // const token = localStorage.getItem('token')
+    //     try {
+    //         const {data} = await api.get('/get-users')
+
+    //         console.log(`data: ${data}`)
+
+    //         setDados(data)
+
+    //         console.log(`dados: ${dados}`)
 
 
-    async function ChekAuth(req, res){
+            
+    //     } catch (error) {
+
+    //         // set({authUser: null})
+    //         return console.log(`error: ${error}`)
+            
+            
+    //     }
+    //     // finally {
+    //     //     set({isCheckingAuth: false})
+    //     // }
+    // }
+
+ async function useAuthStore(req, res){
+      // const [dados, setDados] = useState([])
+
         // const token = localStorage.getItem('token')
         try {
             const {data} = await api.get('/get-users')
@@ -26,27 +58,21 @@ function App() {
             console.log(`data: ${data}`)
 
             setDados(data)
-
-            console.log(`dados: ${dados}`)
-
-
+            // set({authUser: data})
             
         } catch (error) {
 
-            // set({authUser: null})
-            return console.log(`error: ${error}`)
-            
+            setDados(null)
             
         }
-        // finally {
-        //     set({isCheckingAuth: false})
-        // }
+        finally {
+            setIsCheckingAuth(false)
+        }
     }
 
 
-
 useEffect(() => {
-  ChekAuth()
+  useAuthStore()
 },[])
 
   return (

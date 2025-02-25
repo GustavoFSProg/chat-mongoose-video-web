@@ -4,10 +4,12 @@ import Login from './pages/Login/Login';
 import SignIn from './pages/signin/SingIn';
 import SignUp from './pages/signup/SignUp';
 import Profile from './pages/profile/Profile';
+import { UserContextProvider } from './Contexts/userContext';
 
 function Routers() {
     return (
       <>
+        <UserContextProvider>
 
        <BrowserRouter>
          <Routes>
@@ -20,6 +22,7 @@ function Routers() {
 
          </Routes>
        </BrowserRouter>
+        </UserContextProvider>
       </>
     );
   }
