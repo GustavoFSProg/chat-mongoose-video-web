@@ -19,7 +19,7 @@ function SignUp(req, res) {
 
       setIsSignup(true);
 
-      // const users = await api.post("/signup", data);
+      const users = await api.post("/signup", data);
 
       console.log(isSignup);
 
