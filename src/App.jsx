@@ -84,7 +84,7 @@ useEffect(() => {
         <br />
        
         {/* <div> */}
-        {dados.map((items) => {
+        {/* {dados.map((items) => {
           return (
             <div key={items._id}>
 
@@ -94,7 +94,7 @@ useEffect(() => {
             <br />
                         </div>
           )
-        })}
+        })} */}
 
         {/* <button className="btn"> */}
         <button className="btn">Button</button>
