@@ -19,7 +19,9 @@ function SignUp(req, res) {
 
       setIsSignup(true);
 
-      const users = await api.post("/signup", data);
+      const user  = await api.post("/signup", data);
+
+    
 
       console.log(isSignup);
 
@@ -52,6 +54,7 @@ function SignUp(req, res) {
           />
           <br />
           <input
+          type="email"
             placeholder="Email"
             className="rounded p-3"
             value={email}
