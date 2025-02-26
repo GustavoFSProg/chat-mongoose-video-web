@@ -69,10 +69,19 @@ function App() {
       <NavBar />
       <div
         className="flex w-full text-1xl
-       bg-amber-200 flex-col items-center justify-center"
+       bg-white flex-col items-center justify-center"
       >
         OLÁ
         <br />
+        <br />
+        <div>
+
+        {`isSignup: ${isSignup}`}
+        </div>
+
+        <br />
+        <br />
+
         {/* <div> */}
         {/* {dados.map((items) => {
           return (
