@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { CiSettings } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
 import { LuLogOut } from "react-icons/lu";
+import { MdChatBubbleOutline } from "react-icons/md";
 
 
 function NavBar() {
@@ -29,6 +30,16 @@ function NavBar() {
 
    
      h-auto bg-black">
+
+      <div className="flex hover:bg-[#333333]   p-2 items-center justify-center">
+        <buton type="button" className=" flex  p-2 items-center justify-center cursor-pointer">
+
+        <MdChatBubbleOutline style={{fontSize: '23px', color: '#8000ff'}}/>
+       <span className="text-[15px] ml-2 -mt-[2px]">
+         Chats
+        </span>
+        </buton>
+      </div>
         <Link to="/">
         HOME
         </Link>
@@ -41,20 +52,27 @@ function NavBar() {
         <Link to="/signup">
         SIGNUP
         </Link>
-        <div className="flex w-auto -mr-[45px]">
+        <div className="flex w-auto h-auto -mr-[45px]">
 
        
-        <div className="flex hover:bg-[#808080]  cursor-pointer h-auto p-1 pl-3 pb-1 pr-4 items-center
+        <div className="flex hover:bg-[#808080]
+          cursor-pointer h-[33px] p-1 pl-4 pb-1 pr-5 items-center
          bg-[#333333] rounded-2xl">
-        <CiSettings />
+          <button type="button" className=" flex cursor-pointer
+           items-center text-[14px] w-[76px]">
+
+        <CiSettings style={{fontSize: '18px'}}/>
       <p className="text-[14px] ml-2">
           Settings
         </p>
+          </button>
         </div>
+
         <div className="flex ml-5
-       h-auto p-1 pl-4 pb-1 pr-5 items-center
+      o p-1 pl-4 pb-1 pr-5 items-center
          bg-[#333333] rounded-2xl
          cursor-pointer
+         h-[33px]
          hover:bg-[#808080] 
         ">
           <button type="button" className=" flex cursor-pointer items-center text-[14px] w-[65px]">
@@ -70,7 +88,7 @@ function NavBar() {
         {isSignup === true  ?
       <div className="flex 
        hover:bg-[#808080] 
-      ml-5 h-auto items-center
+      ml-5 h-[33px] items-center
       p-1 pl-5 pb-1 pr-4 
       bg-[#333333] rounded-2xl
       cursor-pointer
