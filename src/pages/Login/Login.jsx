@@ -17,11 +17,11 @@ function Login() {
     try {
       const dados = {  email: email, password: password };
 
-      setIsSignup(true);
-
+      
       const {data} = await api.post("/login", dados);
-
+      
       localStorage.setItem('token', data.token)
+      setIsSignup(true);
 
       console.log(` Token: ${data.token}`)
       console.log(` Email: ${data.email}`)

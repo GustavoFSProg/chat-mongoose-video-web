@@ -20,6 +20,8 @@ function App() {
 
   console.log(user.name, user.email, isSignup);
 
+  const Token = localStorage.getItem('token')
+
   // async function ChekAuth(req, res){
   //     // const token = localStorage.getItem('token')
   //     try {
@@ -45,7 +47,7 @@ function App() {
   async function useAuthStore(req, res) {
     // const [dados, setDados] = useState([])
 
-    // const token = localStorage.getItem('token')
+    const Token = localStorage.getItem('token')
     try {
       const { data } = await api.get("/get-users");
 
