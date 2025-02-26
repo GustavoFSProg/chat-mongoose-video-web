@@ -49,7 +49,7 @@ function App() {
     try {
       const { data } = await api.get("/get-users");
 
-      console.log(`data: ${data}`);
+      // console.log(`data: ${data}`);
 
       setDados(data);
       // set({authUser: data})
@@ -98,6 +98,7 @@ function App() {
 
         {/* Open the modal using document.getElementById('ID').showModal() method */}
         <button
+        type="button"
           className="btn"
           onClick={() => document.getElementById("my_modal_1").showModal()}
         >
@@ -112,7 +113,7 @@ function App() {
             <div className="modal-action">
               <form method="dialog">
                 {/* if there is a button in form, it will close the modal */}
-                <button className="btn">Close</button>
+                <button type="button" className="btn">Close</button>
               </form>
             </div>
           </div>

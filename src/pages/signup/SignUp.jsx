@@ -4,6 +4,7 @@ import NavBar from "../../components/Navbar/Navbar";
 import userContext from "../../Contexts/userContext";
 import { useContext } from "react";
 import api from "../../api";
+import toast from "react-hot-toast";
 
 function SignUp(req, res) {
   const [fullname, setFullname] = useState("");
@@ -22,8 +23,12 @@ function SignUp(req, res) {
       const user  = await api.post("/signup", data);
 
     
-
+      
       console.log(isSignup);
+      
+      // toast.success("Usuário cadastrado com sucesso!")
+
+    // return user
 
       return alert("Usuário cadastrado com sucesso!");
     } catch (error) {

@@ -7,8 +7,8 @@ import { useContext } from "react";
 
 function Login() {
   
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("paula@gmail.com");
+  const [password, setPassword] = useState("1234567");
   const { user, setIsSignup, isSignup } = useContext(userContext);
 
   async function handleSignup(event) {
@@ -20,6 +20,8 @@ function Login() {
       setIsSignup(true);
 
       const {data} = await api.post("/login", dados);
+
+      localStorage.setItem('token', data.token)
 
       console.log(` Token: ${data.token}`)
       console.log(` Email: ${data.email}`)
