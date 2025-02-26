@@ -23,11 +23,11 @@ function Login() {
 
       console.log(` Token: ${data.token}`)
       console.log(` Email: ${data.email}`)
-      console.log(` User: ${data.Usuario}`)
+      console.log(` Name: ${data.user.fullname}`)
 
       console.log(isSignup);
 
-      return alert("Login efetuado  com sucesso!");
+      return alert(`Login efetuado  com sucesso!, Olá ${data.user.fullname}`);
     } catch (error) {
       return alert(error);
     }
