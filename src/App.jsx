@@ -68,9 +68,9 @@ function App() {
     <>
       <NavBar />
       <div
-        className="flex w-full text-1xl
+        className="flex w-full text-1xl -
         h-[100vh]
-       bg-[#404040] flex-col items-center justify-center"
+       flex-col items-center justify-center"
       >
         OLÁ
         <br />

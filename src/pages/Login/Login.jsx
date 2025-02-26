@@ -37,11 +37,23 @@ function Login() {
   return (
     <>
       <NavBar />
-      <br />
-      <br />
-      <br />
-      <div className="flex  w-full items-center flex-col justify-center h-auto">
-        <h1 className="flex mb-9 h-full w-[80%] text-[28px] items-center justify-center">
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      
+      <div className="flex  h-screen w-full items-center flex-col 
+       -mt-[180px]
+      justify-center ">
+        <h1 className="flex 
+        -mt-[380px]
+        mb-9 h-[100px]] w-[80%] text-[28px]
+         items-center
+         justify-center">
         LOGIN DE USUÁRIO
         </h1>
 
