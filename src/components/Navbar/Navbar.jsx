@@ -22,24 +22,31 @@ function NavBar() {
   }
 
   return (
-    <div className="flex w-full justify-center h-auto
+    <div className="flex w-full justify-center h-[100px]
+    items-center
     text-white
     bg-black">
     <div  className="flex w-[79%] justify-between
-    p-5
+    
+    -h-[50px]
 
-   
-     h-auto bg-black">
+     p-3
+     items-center
+      bg-black">
 
-      <div className="flex hover:bg-[#333333]   p-2 items-center justify-center">
+      <div className="flex hover:bg-[#333333] 
+       -ml-[80px]
+      p-2 items-center justify-center">
         <buton type="button" className=" flex  p-2 items-center justify-center cursor-pointer">
 
-        <MdChatBubbleOutline style={{fontSize: '23px', color: '#8000ff'}}/>
-       <span className="text-[15px] ml-2 -mt-[2px]">
+        <MdChatBubbleOutline style={{fontSize: '25px', color: '#8000ff'}}/>
+       <p className="text-[16px] ml-2 -mt-[2px]">
          Chats
-        </span>
+        </p>
         </buton>
       </div>
+      <div className="flex w-[500px] justify-between items center">
+
         <Link to="/">
         HOME
         </Link>
@@ -52,6 +59,7 @@ function NavBar() {
         <Link to="/signup">
         SIGNUP
         </Link>
+      </div>
         <div className="flex w-auto h-auto -mr-[45px]">
 
        
