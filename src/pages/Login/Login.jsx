@@ -7,9 +7,9 @@ import { useContext } from "react";
 
 function Login() {
   
-  const [email, setEmail] = useState("paula@gmail.com");
+  const [email, setEmail] = useState("vera@gmail.com");
   const [password, setPassword] = useState("1234567");
-  const { user, setIsSignup, isSignup } = useContext(userContext);
+  const { user, setIsSignup, isSignup, setUser } = useContext(userContext);
 
   async function handleSignup(event) {
     event.preventDefault();
@@ -19,6 +19,8 @@ function Login() {
 
       
       const {data} = await api.post("/login", dados);
+
+      setUser({name:data.user.fullname, Image:data.user.profilePic, email: data.user.email})
       
       localStorage.setItem('token', data.token)
       setIsSignup(true);
@@ -28,6 +30,9 @@ function Login() {
       console.log(` Name: ${data.user.fullname}`)
 
       console.log(isSignup);
+      console.log(`User: ${user.name}`)
+      console.log(`Image: ${user.Image}`)
+      console.log(`Email: ${user.email}`)
 
       return alert(`Login efetuado  com sucesso!, Olá ${data.user.fullname}`);
     } catch (error) {
