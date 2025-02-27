@@ -18,6 +18,7 @@ function App() {
 
   const { user, isSignup } = useContext(userContext);
 
+
   console.log(user.name, user.email, isSignup);
 
   const Token = localStorage.getItem('token')
@@ -80,6 +81,11 @@ function App() {
         <div>
 
         {`isSignup: ${isSignup}`}
+        <br />
+        <br />
+        {user.name}
+        <br/>
+        {user.email}
         </div>
 
         <br />
