@@ -86,13 +86,12 @@ function NavBar() {
          hover:bg-[#808080] 
         "
           >
-            <button
-              type="button"
-              className=" flex cursor-pointer items-center text-[14px] w-[65px]"
+            <Link to="/profile"
+              className=" flex cursor-pointer  items-center text-[14px] w-[65px]"
             >
               <CiUser />
               <p className="text-[14px] ml-2">Profile</p>
-            </button>
+            </Link>
           </div>
 
           {isSignup === true && Token ? (
