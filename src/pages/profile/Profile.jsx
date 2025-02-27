@@ -18,7 +18,7 @@ function Profile() {
           rounded-[15px]
          
         h-[450px]
-          bg-[#1a0d00]">
+          bg-[#251a0e]">
          
           <div>
           <h2 className="text-center mt-5">Profile</h2>

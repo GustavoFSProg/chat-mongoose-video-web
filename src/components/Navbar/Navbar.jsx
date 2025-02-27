@@ -94,7 +94,7 @@ function NavBar() {
             </Link>
           </div>
 
-          {isSignup === true && Token ? (
+          {isSignup === true ? (
             <div
               className="flex 
        hover:bg-[#808080] 
