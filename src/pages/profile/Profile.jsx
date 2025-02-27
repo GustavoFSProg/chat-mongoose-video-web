@@ -15,34 +15,18 @@ function Profile() {
          <div className="flex w-[40%]
          justify-center
          text-[20px]
-        
+          rounded-[15px]
          
-        h-[600px]
+        h-[450px]
           bg-[#331a00]">
-            {/* <div className="flex-col ml-[270px] justify-center">
-
-          <h2 className="mt-5 text-center">Profile</h2>
-          <p className="text-[13px] mt-2">Your Profile Information</p>
-            </div>
-            <div className="flex flex-1 -mt-[50px] -ml-[129px]">
-
-            <img src={reactImage} width="120" alt="perfil"/>
-            </div>
-            <div className="flex ">
-
-            <span className="text-[13px] -ml-[475px] mt-[250px]">Clique na camera 
-              icone pra mudar sua foto!</span>
-          </div> 
-          <div>
-            <input placeholder="nome" />
-          </div> */}
+         
           <div>
           <h2 className="text-center mt-5">Profile</h2>
           <p className="text-[13px] mt-2">Your Profile Information</p>
           <img src={reactImage} className="mt-7 ml-4" width="120" alt="perfil"/>
           </div>
           </div>
-          <div className="-mt-[330px]">
+          <div className="-mt-[180px]">
             <p className="text-[13px]  ml-1">
               Nome Completo
             </p>
@@ -60,6 +44,22 @@ function Profile() {
             text-[14px]
             mt-[4px]  rounded-[8px] h-10" />
           </div>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
           </div> 
             </>
   )
