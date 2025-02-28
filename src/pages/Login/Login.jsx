@@ -20,7 +20,7 @@ function Login() {
       
       const {data} = await api.post("/login", dados);
 
-      setUser({name:data.user.fullname, Image:data.user.profilePic, email: data.user.email})
+      setUser({id: data.user._id, fullname:data.user.fullname, profilePic:data.user.profilePic, email: data.user.email})
       
       localStorage.setItem('token', data.token)
       setIsSignup(true);
@@ -30,9 +30,10 @@ function Login() {
       console.log(` Name: ${data.user.fullname}`)
 
       console.log(isSignup);
-      console.log(`User: ${user.name}`)
-      console.log(`Image: ${user.Image}`)
+      console.log(`User: ${user.fullname}`)
+      console.log(`Image: ${user.profilePic}`)
       console.log(`Email: ${user.email}`)
+      console.log(`ID: ${user.id}`)
 
       return alert(`Login efetuado  com sucesso!, Olá ${data.user.fullname}`);
     } catch (error) {

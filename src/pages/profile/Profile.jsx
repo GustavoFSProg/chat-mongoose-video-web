@@ -3,16 +3,19 @@ import reactImage from '../../assets/avatar.jpeg'
 import {Camera} from 'lucide-react'
 import userContext from "../../Contexts/userContext";
 import { useContext, useState } from "react";
+import api from "../../api";
   
 
 
 function Profile() {
   const { user, isSignup } = useContext(userContext);
-  const [selectedImg, setSelectedImg] = useState(null)
+  // const [selectedImg, setSelectedImg] = useState(null)
+  const [image, setImage] = useState(null)
 
    console.log(user)
 
  async function handleImageUpload(e){
+   console.log(`User: ${user.id}`)
     const file = e.target.files[0]
 
     // console.log(`File: ${file}`)
@@ -26,9 +29,11 @@ function Profile() {
     reader.onload = async () => {
       const base64Image = reader.result
 
-      setSelectedImg(base64Image)
+      setImage(base64Image)
 
-      await updateProfile({profilePic: base64Image})
+
+      // await updateProfile({profilePic: base64Image})
+      await api.put(`/update-profile/${user.id}`, image)
     }
   }
 
@@ -48,14 +53,14 @@ function Profile() {
                Olá, 
              </span>
              
-              {user.name}
+              {user.fullname}
               {/* {user.Image} */}
             
             </p>
           </div>
         <div className="flex flex-col items-center gap-4 mt-[30px]"> 
           <div className="relative">
-          <img src={selectedImg ||  user.Image || reactImage}
+          <img src={image ||  user.profilePic || reactImage}
            className="size-38 rounded-full object-cover border-3" alt="perfil"/>
            <label htmlFor="avatar-upload"
            className={`
