@@ -12,10 +12,10 @@ function Profile() {
   // const [selectedImg, setSelectedImg] = useState(null)
   const [image, setImage] = useState(null)
 
-   console.log(user)
+  //  console.log(user)
 
  async function handleImageUpload(e){
-   console.log(`User: ${user.id}`)
+  //  console.log(`User: ${user.id}`)
     const file = e.target.files[0]
 
     // console.log(`File: ${file}`)
@@ -33,7 +33,17 @@ function Profile() {
 
 
       // await updateProfile({profilePic: base64Image})
-      await api.put(`/update-profile/${user.id}`, image)
+      
+      
+      const data = new FormData()
+      
+      data.append('image', file)
+      
+      await api.put(`/update-profile/${user.id}`, data)
+
+
+
+
     }
   }
 
