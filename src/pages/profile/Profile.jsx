@@ -10,10 +10,12 @@ function Profile() {
   const { user, isSignup } = useContext(userContext);
   const [selectedImg, setSelectedImg] = useState(null)
 
+   console.log(user)
+
  async function handleImageUpload(e){
     const file = e.target.files[0]
 
-    console.log(`File: ${file}`)
+    // console.log(`File: ${file}`)
 
     if(!file)return
 
@@ -47,12 +49,13 @@ function Profile() {
              </span>
              
               {user.name}
+              {/* {user.Image} */}
             
             </p>
           </div>
         <div className="flex flex-col items-center gap-4 mt-[30px]"> 
           <div className="relative">
-          <img src={selectedImg ||  user.profilePic || reactImage}
+          <img src={selectedImg ||  user.Image || reactImage}
            className="size-38 rounded-full object-cover border-3" alt="perfil"/>
            <label htmlFor="avatar-upload"
            className={`

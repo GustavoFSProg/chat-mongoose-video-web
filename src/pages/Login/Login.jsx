@@ -7,7 +7,7 @@ import { useContext } from "react";
 
 function Login() {
   
-  const [email, setEmail] = useState("vera@gmail.com");
+  const [email, setEmail] = useState("joao@admin");
   const [password, setPassword] = useState("1234567");
   const { user, setIsSignup, isSignup, setUser } = useContext(userContext);
 
