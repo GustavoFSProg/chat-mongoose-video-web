@@ -4,12 +4,15 @@ import api from "../../api";
 
 import userContext from "../../Contexts/userContext";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   
   const [email, setEmail] = useState("joao@admin");
   const [password, setPassword] = useState("1234567");
   const { user, setIsSignup, isSignup, setUser } = useContext(userContext);
+
+  const navigate = useNavigate()
 
   async function handleSignup(event) {
     event.preventDefault();
@@ -25,15 +28,17 @@ function Login() {
       localStorage.setItem('token', data.token)
       setIsSignup(true);
 
-      console.log(` Token: ${data.token}`)
-      console.log(` Email: ${data.email}`)
-      console.log(` Name: ${data.user.fullname}`)
+      // console.log(` Token: ${data.token}`)
+      // console.log(` Email: ${data.email}`)
+      // console.log(` Name: ${data.user.fullname}`)
 
-      console.log(isSignup);
-      console.log(`User: ${user.fullname}`)
-      console.log(`Image: ${user.profilePic}`)
-      console.log(`Email: ${user.email}`)
-      console.log(`ID: ${user.id}`)
+      // console.log(isSignup);
+      // console.log(`User: ${user.fullname}`)
+      // console.log(`Image: ${user.profilePic}`)
+      // console.log(`Email: ${user.email}`)
+      // console.log(`ID: ${user.id}`)
+
+      navigate('/profile')
 
       return alert(`Login efetuado  com sucesso!, Olá ${data.user.fullname}`);
     } catch (error) {
