@@ -45,7 +45,7 @@ function NavBar() {
        -ml-[80px]
       p-2 items-center justify-center"
         >
-          <buton
+          <button
             type="button"
             className=" flex  p-2 items-center justify-center cursor-pointer"
           >
@@ -53,7 +53,7 @@ function NavBar() {
               style={{ fontSize: "25px", color: "#8000ff" }}
             />
             <p className="text-[16px] ml-2 -mt-[2px]">Chats</p>
-          </buton>
+          </button>
         </div>
         <div className="flex w-[500px] justify-between items center">
           <Link to="/">HOME</Link>

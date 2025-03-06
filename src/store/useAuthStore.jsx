@@ -23,9 +23,10 @@ export default async function useAuthStore(req, res) {
     // set({authUser: data})
   } catch (error) {
     setDados(null);
-  } finally {
-    set({ isCheckingAuth: false });
-  }
+   }
+    // finally {
+  //   set({ isCheckingAuth: false });
+  // }
 }
 
 async function SignUp(req, res) {
