@@ -6,16 +6,19 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./index.css";
 import NavBar from "./components/Navbar/Navbar";
-// import { useAuthStore } from './store/useAuthStore'
 import useAuthStore from "./store/useAuthStore";
 import userContext from "./Contexts/userContext";
 import { useContext } from "react";
 import Sidebar from "./components/Sidebar";
+import { useChatStore } from "./store/useChatStore";
+import NoChatSelected from "./pages/NoChat/noChatSelected";
 
 function App() {
   // const {authUser, ckeckAuth} = useAuthStore()
   const [dados, setDados] = useState([]);
   const [isCheckingAuth, setIsCheckingAuth] = useState(true);
+
+  const {selectedUser} = useChatStore()
 
   const { user, isSignup } = useContext(userContext);
 
@@ -56,7 +59,7 @@ function App() {
           <div className="flex h-full rounded-lg overflow-hidden">
             <Sidebar />
 
-            {/* {!selectedUser ? <NoChatSelected /> : <ChatContainer />} */}
+            {!selectedUser ? <NoChatSelected /> : <ChatContainer />}
           </div>
         </div>
       </div>
