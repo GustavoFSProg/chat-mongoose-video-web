@@ -13,7 +13,7 @@ function Profile() {
   //  console.log(user)
 
   async function handleImageUpload(e) {
-    //  console.log(`User: ${user.id}`)
+     console.log(`User: ${user.id}`)
     const file = e.target.files[0];
 
     // console.log(`File: ${file}`)

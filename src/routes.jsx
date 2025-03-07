@@ -5,6 +5,7 @@ import SignIn from './pages/signin/SingIn';
 import SignUp from './pages/signup/SignUp';
 import Profile from './pages/profile/Profile';
 import { UserContextProvider } from './Contexts/userContext';
+import Sidebar from './components/Sidebar';
 
 function Routers() {
     return (
@@ -18,6 +19,7 @@ function Routers() {
             <Route path="/singin"  element={<SignIn />}/>
             <Route path="/signup"  element={<SignUp />}/>
             <Route path="/profile"  element={<Profile />}/>
+            <Route path="/sidebar"  element={<Sidebar />}/>
            
 
          </Routes>

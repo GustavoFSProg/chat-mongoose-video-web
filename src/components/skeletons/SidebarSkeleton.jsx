@@ -17,12 +17,12 @@ const SidebarSkeleton = () => {
         </div>
       </div>
 
-      {/* Skeleton Contacts */}
+      Skeleton Contacts
       <div className="overflow-y-auto w-full py-3">
         {skeletonContacts.map((_, idx) => (
           // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 <div key={idx} className="w-full p-3 flex items-center gap-3">
-            {/* Avatar skeleton */}
+            Avatar skeleton
             <div className="relative mx-auto lg:mx-0">
               <div className="skeleton size-12 rounded-full" />
             </div>
