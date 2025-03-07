@@ -29,17 +29,14 @@ const Sidebar = () => {
 
   async function getMessages() {
     // set({ isMessagesLoading: true });
-    // const {receiverId} = "67ef9b13-e594-4124-9058-1094897f224e"
+    const {receiverId} = "67ef9b13-e594-4124-9058-1094897f224e"
     try {
       // const id = req.params.id
 
-      const id =  "67ef9b13-e594-4124-9058-1094897f224e"
-
-      const { data } = await api.get(`/get-one-chat/${id}`);
-      console.log(`Data: ${data }` )
-
-      setDados(data);
-
+      const { user1 } = await api.get("/message/322a41cb-9287-4866-8ed9-6fa89128910c",
+         {userId: "67ef9b13-e594-4124-9058-1094897f224e" });
+      // set({ messages: res.data });
+      setDados(user1.text);
       console.log(`dados: ${dados}`);
     } catch (error) {
       // toast.error(error);
@@ -74,23 +71,21 @@ const Sidebar = () => {
       </div>
 
       <div className="overflow-y-auto w-full py-3 text-white">
-        <h1 style={{color: 'green', fontSize: '24px'}}>Olá, {user.fullname}</h1>
-        <br />
-        <br />
         {dados.map((user) => {
           return (
             <>
-              <div key="id">
-               
-                {/* <p>Olá {user.nameUser1}</p> */}
-                <p>{user.nameUser2}</p>
-                <br/>
+              <div key={user.id}>
+                {/* <p>
+                ID: {user.id}
+
+              </p> */}
+                <p>{user.email}</p>
               </div>
             </>
           );
         })}
 
-        {/* {filteredUsers.map((user) => (
+        {filteredUsers.map((user) => (
           <button
             type="button"
             key={user._id}
@@ -117,21 +112,21 @@ const Sidebar = () => {
                   rounded-full ring-2 ring-zinc-900"
                 />
               )}
-            </div> */}
+            </div>
 
             {/* User info - only visible on larger screens */}
-            {/* <div className="hidden lg:block text-left min-w-0">
+            <div className="hidden lg:block text-left min-w-0">
               <div className="font-medium truncate">{user.fullName}</div>
               <div className="text-sm text-zinc-400">
                 {onlineUsers.includes(user._id) ? "Online" : "Offline"}
               </div>
             </div>
-          </button> */}
-        {/* ))} */}
-{/* 
+          </button>
+        ))}
+
         {filteredUsers.length === 0 && (
           <div className="text-center text-zinc-500 py-4">No online users</div>
-        )} */}
+        )}
       </div>
     </aside>
   );

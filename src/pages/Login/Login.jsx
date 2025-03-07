@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 function Login() {
   
-  const [email, setEmail] = useState("joao@admin");
+  const [email, setEmail] = useState("gusta@gmail.com");
   const [password, setPassword] = useState("1234567");
   const { user, setIsSignup, isSignup, setUser } = useContext(userContext);
 
@@ -28,8 +28,9 @@ function Login() {
       localStorage.setItem('token', data.token)
       setIsSignup(true);
 
+
       // console.log(` Token: ${data.token}`)
-      // console.log(` Email: ${data.email}`)
+      console.log(` Email: ${data.email}`)
       // console.log(` Name: ${data.user.fullname}`)
 
       // console.log(isSignup);

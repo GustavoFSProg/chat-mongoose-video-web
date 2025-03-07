@@ -57,6 +57,7 @@ function NavBar() {
         </div>
         <div className="flex w-[500px] justify-between items center">
           <Link to="/">HOME</Link>
+          <Link to="/sidebar">Sidebar</Link>
           <Link to="/login">LOGIN</Link>
           <Link to="/singin">SIGNIN</Link>
           <Link to="/signup">SIGNUP</Link>
