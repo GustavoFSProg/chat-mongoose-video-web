@@ -12,26 +12,28 @@ export const useChatStore = create((set, get) => ({
   getUsers: async () => {
     set({ isUsersLoading: true });
     try {
-      const res = await api.get("/messages/users");
-      set({ users: res.data });
+      // const id = "67b8682f92ff84ef990dc8e"
+      const {data} = await api.get("/get-users");
+      set({ users: data });
+      console.log(` users:${users}`)
     } catch (error) {
-      toast.error(error.response.data.message);
+      // toast.error(error.response.data.message);
     } finally {
       set({ isUsersLoading: false });
     }
   },
 
-  getMessages: async (userId) => {
-    set({ isMessagesLoading: true });
-    try {
-      const res = await api.get(`/messages/${userId}`);
-      set({ messages: res.data });
-    } catch (error) {
-      toast.error(error.response.data.message);
-    } finally {
-      set({ isMessagesLoading: false });
-    }
-  },
+  // getMessages: async (userId) => {
+  //   set({ isMessagesLoading: true });
+  //   try {
+  //     const res = await api.get(`/messages/${userId}`);
+  //     set({ messages: res.data });
+  //   } catch (error) {
+  //     toast.error(error.response.data.message);
+  //   } finally {
+  //     set({ isMessagesLoading: false });
+  //   }
+  // },
 //   sendMessage: async (messageData) => {
 //     const { selectedUser, messages } = get();
 //     try {

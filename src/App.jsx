@@ -9,9 +9,9 @@ import NavBar from "./components/Navbar/Navbar";
 import useAuthStore from "./store/useAuthStore";
 import userContext from "./Contexts/userContext";
 import { useContext } from "react";
-import Sidebar from "./components/Sidebar";
 import { useChatStore } from "./store/useChatStore";
 import NoChatSelected from "./pages/NoChat/noChatSelected";
+import Sidebar from "./components/Sidebar";
 
 function App() {
   // const {authUser, ckeckAuth} = useAuthStore()
