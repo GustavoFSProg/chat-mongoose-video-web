@@ -149,8 +149,11 @@ const Sidebar = () => {
                 {/* <img src={items.}/> */}
                
                 {/* <p>Olá {user.nameUser1}</p> */}
-                <p>{items.user2}</p>
+                <p>{items.nameUser2}</p>
                 <button type="button" onClick={() => handleUser(items.user2)}>Botão</button>
+                <br />
+                <button type="button" onClick={() => getMessages()}>Mensagemns</button>
+                <br/>
                 <br/>
               </div>
             </>
