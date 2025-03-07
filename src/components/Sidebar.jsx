@@ -13,10 +13,13 @@ const Sidebar = () => {
   const { getUsers, users, selectedUser, setSelectedUser, isUsersLoading } =
     useChatStore();
   const [dados, setDados] = useState([]);
+  const [mydados, setMyDados] = useState([]);
+  const [contacts, setContacts] = useState([]);
+  const [myusers, setMyUsers] = useState({});
   // const { onlineUsers } = useAuthStore();
   const [showOnlineOnly, setShowOnlineOnly] = useState(false);
   const { user, setIsSignup, isSignup, setUser } = useContext(userContext);
-
+  
   const filteredUsers = showOnlineOnly
     ? users.filter((user) => onlineUsers.includes(user.id))
     : users;
@@ -33,12 +36,15 @@ const Sidebar = () => {
     try {
       // const id = req.params.id
 
-      const id =  "67ef9b13-e594-4124-9058-1094897f224e"
+      const userId =  "67ef9b13-e594-4124-9058-1094897f224e"
+      const id = "5dfceb12-c370-4237-8e05-8a0ec1bb3d54"
 
-      const { data } = await api.get(`/get-one-chat/${id}`);
-      console.log(`Data: ${data }` )
+      const { data } = await api.get(`/get-messages/${id}`, userId);
+      console.log(`Data: ${data}` )
 
-      setDados(data);
+      setDados(data.user1);
+
+      setMyDados(data.user2)
 
       console.log(`dados: ${dados}`);
     } catch (error) {
@@ -47,12 +53,55 @@ const Sidebar = () => {
     }
   }
 
+
+  async function getSidebarContacts() {
+      // set({ isMessagesLoading: true });
+      // const {receiverId} = "67ef9b13-e594-4124-9058-1094897f224e"
+      try {
+        // const id = req.params.id
+  
+        const id =  "67ef9b13-e594-4124-9058-1094897f224e"
+  
+        const { data } = await api.get(`/get-one-chat/${id}`);
+        console.log(`Data-contacts: ${data }` )
+  
+        setContacts(data);
+  
+        console.log(`contacst: ${contacts}`);
+      } catch (error) {
+        // toast.error(error);
+        console.log(`error: ${error}`);
+      }
+    }
+
+
+  async function handleUser(id) {
+    // set({ isMessagesLoading: true });
+    // const {receiverId} = "67ef9b13-e594-4124-9058-1094897f224e"
+    try {
+      // const id = req.params.id
+
+
+      const { data } = await api.get(`/get-one-user/${id}`);
+      // console.log(`Data-contacts: ${data }` )
+
+      setMyUsers(data.profilePic);
+
+      console.log(`myusers: ${myusers.profilePic}`);
+    } catch (error) {
+      // toast.error(error);
+      console.log(`error: ${error}`);
+    }
+  }
+  
+
   useEffect(() => {
-    getMessages(); // getUsers();
+    // getMessages(); 
+    getSidebarContacts()
   }, []);
 
   return (
-    <aside className="h-full w-20 lg:w-72 border-r border-base-300 flex flex-col transition-all duration-200">
+    <aside className="h-full w-full lg:w-72 border-r border-base-300 flex flex-col transition-all duration-200">
       <div className="border-b border-base-300 w-full p-5">
         <div className="flex items-center gap-2">
           <Users className="size-6" />
@@ -74,65 +123,83 @@ const Sidebar = () => {
       </div>
 
       <div className="overflow-y-auto w-full py-3 text-white">
-        <h1 style={{color: 'green', fontSize: '24px'}}>Olá, {user.fullname}</h1>
+        {/* <h1 style={{color: 'green', fontSize: '24px'}}>Olá, {user.fullname}</h1> */}
         <br />
         <br />
-        {dados.map((user) => {
-          return (
-            <>
+       
+      
+       
+          
+            <div className="relative mx-auto lg:mx-0">
+              {/* {myusers.map(item => {
+                 return ( 
+
+                   <div key="">
+                 <img src={item.profilePic} width="100" alt="imagem"/>
+                </div>
+                  )
+              })} */}
+
+              <p>PORRA</p>
+              <img src={myusers} alt="imagem" width='100'/>
+            {contacts.map((items) => {
+              return (
+                <>
               <div key="id">
+                {/* <img src={items.}/> */}
                
                 {/* <p>Olá {user.nameUser1}</p> */}
-                <p>{user.nameUser2}</p>
+                <p>{items.user2}</p>
+                <button type="button" onClick={() => handleUser(items.user2)}>Botão</button>
                 <br/>
               </div>
             </>
-          );
-        })}
+          )})}
 
-        {/* {filteredUsers.map((user) => (
-          <button
-            type="button"
-            key={user._id}
-            onClick={() => setSelectedUser(user)}
-            className={`
-              w-full p-3 flex items-center gap-3
-              hover:bg-base-300 transition-colors
-              ${
-                selectedUser?._id === user._id
-                  ? "bg-base-300 ring-1 ring-base-300"
-                  : ""
-              }
-            `}
-          >
-            <div className="relative mx-auto lg:mx-0">
-              <img
-                src={user.profilePic || "/avatar.png"}
-                alt={user.name}
-                className="size-12 object-cover rounded-full"
-              />
-              {onlineUsers.includes(user._id) && (
-                <span
-                  className="absolute bottom-0 right-0 size-3 bg-green-500 
-                  rounded-full ring-2 ring-zinc-900"
-                />
-              )}
-            </div> */}
+        
+{/*               
+            </div> 
 
-            {/* User info - only visible on larger screens */}
-            {/* <div className="hidden lg:block text-left min-w-0">
+         <div className="hidden lg:block text-left min-w-0"> */}
+
               <div className="font-medium truncate">{user.fullName}</div>
               <div className="text-sm text-zinc-400">
-                {onlineUsers.includes(user._id) ? "Online" : "Offline"}
+      
               </div>
             </div>
-          </button> */}
+          
         {/* ))} */}
 {/* 
         {filteredUsers.length === 0 && (
           <div className="text-center text-zinc-500 py-4">No online users</div>
         )} */}
       </div>
+                
+      {dados.map((user) => {
+          return (
+            <>
+              <div key="id">
+               
+                {/* <p>Olá {user.nameUser1}</p> */}
+                <p>{user.text}</p>
+                <br/>
+              </div>
+            </>
+          );
+        })}
+
+{mydados.map((user) => {
+          return (
+            <>
+              <div key="id">
+               
+                {/* <p>Olá {user.nameUser1}</p> */}
+                <p>{user.text}</p>
+                <br/>
+              </div>
+            </>
+          );
+        })}
     </aside>
   );
 };
